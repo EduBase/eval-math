@@ -9,12 +9,18 @@ class EvalMath
     /**
      * @var bool
      */
-    public $suppress_errors = false;
+    public $suppress_errors = true;
+    public $suppress_logging = true;
 
     /**
      * @var string
      */
     public $last_error = null;
+
+    /**
+     * @var string
+     */
+    private $expression;
 
     /**
      * @var array
@@ -38,7 +44,8 @@ class EvalMath
         'sin','sinh','arcsin','asin','arcsinh','asinh',
         'cos','cosh','arccos','acos','arccosh','acosh',
         'tan','tanh','arctan','atan','arctanh','atanh',
-        'sqrt','abs','ln','log'
+        'sqrt','abs','ln','log',
+        'log10','csc','sec','exp','sgn','isprime'
     );
 
     public function __construct()
@@ -61,10 +68,12 @@ class EvalMath
      * @param string $expr
      * @return mixed
      */
-    public function evaluate($expr)
+    public function evaluate($expr, $logging=false)
     {
         $this->last_error = null;
         $expr = trim($expr);
+        $this->suppress_logging = !$logging;
+        $this->expression = $expr;
         if (substr($expr, -1, 1) == ';') $expr = substr($expr, 0, strlen($expr)-1); // strip semicolons at the end
         //===============
         // is it a variable assignment?
@@ -322,6 +331,8 @@ class EvalMath
     // trigger an error, but nicely, if need be
     public function trigger($msg)
     {
+        global $ice;
+
         $this->last_error = $msg;
         if (!$this->suppress_errors)
         {
@@ -330,6 +341,20 @@ class EvalMath
             
             trigger_error($msg, E_USER_WARNING);
         }        
+        if (!$this->suppress_logging)
+        {
+            /* Log to ICE */
+            if(isset($ice))
+            {
+                $debugTrace = debug_backtrace();
+                if (isset($debugTrace[1])) {
+                    $file = $debugTrace[1]['file'] ? $debugTrace[1]['file'] : false;
+                    $line = $debugTrace[1]['line'] ? $debugTrace[1]['line'] : false;
+                }
+                $ice->log_add(ICE::LOG_PHP, mb_ucfirst($msg).' in "'.$this->expression.'"', 0, $file, $line, false, false, false, $debugTrace);
+            }
+        }
+
         return false;
     }
 
@@ -350,4 +375,34 @@ class EvalMath
         if (isset($debugTrace[2])) $func = $debugTrace[2]['function'] ? $debugTrace[2]['function'] : 'n/a';
         echo "\n$file, $func, $line\n";
     }
+}
+
+/////////////////////////////////////////////////
+// HELPERS
+/////////////////////////////////////////////////
+
+function csc($in){ return 1/sin($in); }
+function sec($in){ return 1/cos($in); }
+function sgn($in){ return ($in>0)?1:(($in<0)?-1:0); }
+
+function modulo($n,$i){ return $n+$i; }
+
+function isprime($n)
+{
+    $i=2;
+
+    /* Checks */
+    if($n<2)
+        return 0;
+    if($n==2)
+        return 1;
+
+    $sqrtN=sqrt($n);
+    while($i<=$sqrtN)
+    {
+        if($n%$i==0)
+            return 0;
+        $i++;
+    }
+    return 1;
 }
