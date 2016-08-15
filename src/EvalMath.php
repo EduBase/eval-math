@@ -191,8 +191,8 @@ class EvalMath
                     $arg_count = $stack->pop(); // see how many arguments there were (cleverly stored on the stack, thank you)
                     $output[] = $stack->pop(); // pop the function and push onto the output
                     if (in_array($fnn, $this->fb)) { // check the argument count
-                        if($arg_count > 1)
-                            return $this->trigger("too many arguments ($arg_count given, 1 expected)");
+                        //if($arg_count > 1)
+                            //return $this->trigger("too many arguments ($arg_count given, 1 expected)");
                     } elseif (array_key_exists($fnn, $this->f)) {
                         if ($arg_count != count($this->f[$fnn]['args']))
                             return $this->trigger("wrong number of arguments ($arg_count given, " . count($this->f[$fnn]['args']) . " expected)");
@@ -375,34 +375,4 @@ class EvalMath
         if (isset($debugTrace[2])) $func = $debugTrace[2]['function'] ? $debugTrace[2]['function'] : 'n/a';
         echo "\n$file, $func, $line\n";
     }
-}
-
-/////////////////////////////////////////////////
-// HELPERS
-/////////////////////////////////////////////////
-
-function csc($in){ return 1/sin($in); }
-function sec($in){ return 1/cos($in); }
-function sgn($in){ return ($in>0)?1:(($in<0)?-1:0); }
-
-function modulo($n,$i){ return $n%$i; }
-
-function isprime($n)
-{
-    $i=2;
-
-    /* Checks */
-    if($n<2)
-        return 0;
-    if($n==2)
-        return 1;
-
-    $sqrtN=sqrt($n);
-    while($i<=$sqrtN)
-    {
-        if($n%$i==0)
-            return 0;
-        $i++;
-    }
-    return 1;
 }

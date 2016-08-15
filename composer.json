@@ -14,7 +14,10 @@
 	"autoload" : {
 		"psr-4" : {
 			"Webit\\Util\\EvalMath\\" : "src/"
-		}
+		},
+		"files": [
+			"EvalMathCustomFunctions.php"
+		]
 	},
     "extra": {
         "branch-alias": {
