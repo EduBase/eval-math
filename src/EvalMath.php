@@ -45,7 +45,7 @@ class EvalMath
         'cos','cosh','arccos','acos','arccosh','acosh',
         'tan','tanh','arctan','atan','arctanh','atanh',
         'sqrt','abs','ln','log',
-        'log10','csc','sec','exp','sgn','isprime'
+        'log10','csc','sec','exp','sgn','isprime','modulo'
     );
 
     public function __construct()
