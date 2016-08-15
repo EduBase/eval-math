@@ -298,10 +298,27 @@ class EvalMath
             } elseif (preg_match("/^([a-z]\w*)\($/", $token, $matches)) { // it's a function!
                 $fnn = $matches[1];
                 if (in_array($fnn, $this->fb)) { // built-in function:
-                    if (is_null($op1 = $stack->pop())) return $this->trigger("internal error");
+                    $args = array();
+                    $argc = 1;
+                    if (in_array($fnn, array('modulo')))
+                        $argc = 2;
+                    for ($i = $argc-1; $i >= 0; $i--) {
+                        if (is_null($op = $stack->pop())) return $this->trigger("internal error");
+                        $args[$i] = $op;
+                    }
+
                     $fnn = preg_replace("/^arc/", "a", $fnn); // for the 'arc' trig synonyms
                     if ($fnn == 'ln') $fnn = 'log';
-                    eval('$stack->push(' . $fnn . '($op1));'); // perfectly safe eval()
+                    if ($argc == 1)
+                        eval('$stack->push(' . $fnn . '($args[0]));'); // perfectly safe eval()
+                    else
+                    {
+                        $ops = '(';
+                        for($i = 0; $i < $argc-1; $i++)
+                            $ops .= '$args['.$i.'], ';
+                        $ops .= '$args['.($argc-1).'])';
+                        eval('$stack->push(' . $fnn . $ops .');'); // perfectly safe eval()
+                    }
                 } elseif (array_key_exists($fnn, $this->f)) { // user function
                     // get args
                     $args = array();
