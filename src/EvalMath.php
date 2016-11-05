@@ -362,14 +362,7 @@ class EvalMath
         {
             /* Log to ICE */
             if(isset($ice))
-            {
-                $debugTrace = debug_backtrace();
-                if (isset($debugTrace[1])) {
-                    $file = $debugTrace[1]['file'] ? $debugTrace[1]['file'] : false;
-                    $line = $debugTrace[1]['line'] ? $debugTrace[1]['line'] : false;
-                }
-                $ice->log_add(ICE::LOG_PHP, mb_ucfirst($msg).' in "'.$this->expression.'"', 0, $file, $line, false, false, false, $debugTrace);
-            }
+                $ice->l(ICE::LOG_PHP, mb_ucfirst($msg).' in "'.$this->expression.'"');
         }
 
         return false;
