@@ -25,7 +25,7 @@ class EvalMath
     /**
      * @var array
      */
-    public $v = array('e'=>2.71,'pi'=>3.14); // variables (and constants)
+    public $v = array('e'=>2.7182818284,'pi'=>3.1415926535); // variables (and constants)
 
     /**
      * @var array
