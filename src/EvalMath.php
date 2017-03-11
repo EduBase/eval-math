@@ -45,7 +45,10 @@ class EvalMath
         'cos','cosh','arccos','acos','arccosh','acosh',
         'tan','tanh','arctan','atan','arctanh','atanh',
         'sqrt','abs','ln','log',
-        'log10','csc','sec','exp','sgn','isprime','modulo'
+        'log10','csc','sec','exp','sgn','isprime','modulo','mod','div','gcd'
+    );
+    public $fb_2args = array( // list 2 argument functions here too
+        'modulo','mod','div','gcd'
     );
 
     public function __construct()
@@ -300,7 +303,7 @@ class EvalMath
                 if (in_array($fnn, $this->fb)) { // built-in function:
                     $args = array();
                     $argc = 1;
-                    if (in_array($fnn, array('modulo')))
+                    if (in_array($fnn, $this->fb_2args))
                         $argc = 2;
                     for ($i = $argc-1; $i >= 0; $i--) {
                         if (is_null($op = $stack->pop())) return $this->trigger("internal error");
