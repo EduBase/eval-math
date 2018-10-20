@@ -41,3 +41,7 @@ function isprime($n)
     }
     return 1;
 }
+
+/* Roman numbers */
+function roman2number($roman){ return ICE::roman_to_number($roman); }
+function number2roman($arabic){ return ICE::number_to_roman($arabic); }
