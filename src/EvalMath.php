@@ -41,8 +41,10 @@ class EvalMath
      * @var array
      */
     public $fb = array(  // built-in functions
-        'sin','sinh','arcsin','asin','arcsinh','asinh','cos','cosh','arccos','acos','arccosh','acosh','tan','tanh','arctan','atan','arctanh','atanh','sqrt','abs','ln','log',
-        'log10','csc','sec','exp','sgn','isprime','modulo','mod','div','gcd','ceil','floor','roman2number','number2roman'
+        'sin','sinh','arcsin','asin','arcsinh','arsinh','arsh','asinh','cos','cosh','arccos','acos','arccosh','arcosh','arch','acosh',
+        'tan','tanh','arctan','atan','arctanh','artanh','atanh','cot','coth','arccot','acot','arccoth','arcoth','acoth',
+        'sqrt','abs','ln','log','log10','csc','sec','exp','sgn','isprime','modulo','mod','div','gcd','ceil','floor',
+        'roman2number','number2roman'
     );
     public $fb_2args = array( // list 2 argument functions here too
         'modulo','mod','div','gcd'

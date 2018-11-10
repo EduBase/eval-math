@@ -6,6 +6,20 @@
 /* Triginometric functions */
 function csc($in){ return 1/sin($in); }
 function sec($in){ return 1/cos($in); }
+function cot($in){ return 1/tan($in); }
+function coth($in){ return 1/tanh($in); }
+function arsinh($in){ return asinh($in); }
+function arsh($in){ return arsinh($in); }
+function arcosh($in){ return acosh($in); }
+function arch($in){ return arcosh($in); }
+function arccot($in){ return atan(1/($in)); }
+function arcot($in){ return arccot($in); }
+function acot($in){ return arccot($in); }
+function arccoth($in){ return atanh(1/($in)); }
+function arcoth($in){ return arccoth($in); }
+function acoth($in){ return arccoth($in); }
+
+/* Signum */
 function sgn($in){ return ($in>0)?1:(($in<0)?-1:0); }
 
 /* Divide and modulo */
