@@ -12,6 +12,7 @@ function arsinh($in){ return asinh($in); }
 function arsh($in){ return arsinh($in); }
 function arcosh($in){ return acosh($in); }
 function arch($in){ return arcosh($in); }
+function artanh($in){ return atanh($in); }
 function arccot($in){ return atan(1/($in)); }
 function arcot($in){ return arccot($in); }
 function acot($in){ return arccot($in); }
