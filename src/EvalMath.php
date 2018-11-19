@@ -309,7 +309,7 @@ class EvalMath
                         $args[$i] = $op;
                     }
 
-                    $fnn = preg_replace("/^arc/", "a", $fnn); // for the 'arc' trig synonyms
+                    //$fnn = preg_replace("/^arc/", "a", $fnn); // for the 'arc' trig synonyms
                     if ($fnn == 'ln') $fnn = 'log';
                     if ($argc == 1)
                         eval('$stack->push(' . $fnn . '($args[0]));'); // perfectly safe eval()
