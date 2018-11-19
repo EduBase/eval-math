@@ -3,15 +3,21 @@
 // HELPERS
 /////////////////////////////////////////////////
 
-/* Triginometric functions */
+/* Triginometric functions and aliases */
 function csc($in){ return 1/sin($in); }
 function sec($in){ return 1/cos($in); }
 function cot($in){ return 1/tan($in); }
 function coth($in){ return 1/tanh($in); }
+function arcsin($in){ return asin($in); }
+function arcsinh($in){ return asinh($in); }
 function arsinh($in){ return asinh($in); }
 function arsh($in){ return arsinh($in); }
+function arccos($in){ return acos($in); }
+function arccosh($in){ return acosh($in); }
 function arcosh($in){ return acosh($in); }
 function arch($in){ return arcosh($in); }
+function arctan($in){ return atan($in); }
+function arctanh($in){ return atanh($in); }
 function artanh($in){ return atanh($in); }
 function arccot($in){ return atan(1/($in)); }
 function arcot($in){ return arccot($in); }
