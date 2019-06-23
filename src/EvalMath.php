@@ -350,8 +350,6 @@ class EvalMath
     // trigger an error, but nicely, if need be
     public function trigger($msg)
     {
-        global $ice;
-
         $this->last_error = $msg;
         if (!$this->suppress_errors)
         {
@@ -363,8 +361,9 @@ class EvalMath
         if (!$this->suppress_logging)
         {
             /* Log to ICE */
+            global $ice;
             if(isset($ice))
-                $ice->l(ICE::LOG_PHP, mb_ucfirst($msg).' in "'.$this->expression.'"');
+                $ice->l(\ICE::LOG_PHP, mb_ucfirst($msg).' in "'.$this->expression.'"');
         }
 
         return false;
