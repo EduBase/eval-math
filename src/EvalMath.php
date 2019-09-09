@@ -47,7 +47,7 @@ class EvalMath
         'roman2number','number2roman'
     );
     public $fb_2args = array( // list 2 argument functions here too
-        'modulo','mod','fmod','div','intdiv','gcd','min','max','intdiv','rand'
+        'modulo','mod','fmod','div','intdiv','gcd','lcm','min','max','intdiv','rand'
     );
 
     public function __construct()

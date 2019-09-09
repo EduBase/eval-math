@@ -39,8 +39,9 @@ function modulo($n,$i)
     return ((int)$n) % ((int)$i);
 }
 
-/* Greatest common divisor */
+/* Greatest common divisor (GCD) and Least common multiple (LCM) */
 function gcd($a,$b){ return $b?gcd($b,((int)$a)%((int)$b)):$a; }
+function lcm($a,$b){ return $b?(($a*$b)/gcd($a,$b)):$a; }
 
 /* Prime number? */
 function isprime($n)
