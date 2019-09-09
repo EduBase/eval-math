@@ -30,7 +30,7 @@ function acoth($in){ return arccoth($in); }
 function sgn($in){ return ($in>0)?1:(($in<0)?-1:0); }
 
 /* Divide and modulo */
-function div($a,$b){ return floor($a/$b); }
+function div($a,$b){ return intdiv($a, $b); }
 function mod($n,$i){ return modulo($n,$i); }
 function modulo($n,$i)
 {

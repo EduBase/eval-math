@@ -43,11 +43,11 @@ class EvalMath
     public $fb = array(  // built-in functions
         'sin','sinh','arcsin','asin','arcsinh','arsinh','arsh','asinh','cos','cosh','arccos','acos','arccosh','arcosh','arch','acosh',
         'tan','tanh','arctan','atan','arctanh','artanh','atanh','cot','coth','arccot','acot','arccoth','arcoth','acoth',
-        'sqrt','abs','ln','log','log10','csc','sec','exp','sgn','isprime','modulo','mod','div','gcd','round','ceil','floor',
+        'sqrt','abs','ln','log','log10','csc','sec','exp','sgn','isprime','round','ceil','floor','deg2rad','rad2deg',
         'roman2number','number2roman'
     );
     public $fb_2args = array( // list 2 argument functions here too
-        'modulo','mod','div','gcd'
+        'modulo','mod','fmod','div','intdiv','gcd','min','max','intdiv','rand'
     );
 
     public function __construct()
@@ -55,6 +55,8 @@ class EvalMath
         // make the variables a little more accurate
         $this->v['pi'] = pi();
         $this->v['e'] = exp(1);
+        // add $fb_2args to $fb
+        $this->fb = array_merge($this->fb, $this->fb_2args);
     }
 
     /**
