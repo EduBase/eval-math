@@ -73,5 +73,5 @@ function factorial($n){ return MathPHP\Probability\Combinatorics::factorial($n);
 function permutations($n){ return MathPHP\Probability\Combinatorics::permutations($n); }
 function combinations($n,$k){ return MathPHP\Probability\Combinatorics::combinations($n,$k); }
 function combinations_repetition($n,$k){ return MathPHP\Probability\Combinatorics::combinations($n,$k,MathPHP\Probability\Combinatorics::REPETITION); }
-function variations($n,$k){ return MathPHP\Probability\Combinatorics::combinations($n,$k)*MathPHP\Probability\Combinatorics::permutations($n); }
+function variations($n,$k){ return MathPHP\Probability\Combinatorics::combinations($n,$k)*MathPHP\Probability\Combinatorics::permutations($k); }
 function variations_repetition($n,$k){ return pow($n,$k); }
