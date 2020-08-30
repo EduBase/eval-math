@@ -67,3 +67,11 @@ function isprime($n)
 /* Roman numbers */
 function roman2number($roman){ return ICE::roman_to_number($roman); }
 function number2roman($arabic){ return ICE::number_to_roman($arabic); }
+
+/* MathPHP functions */
+function factorial($n){ return MathPHP\Probability\Combinatorics::factorial($n); }
+function permutations($n){ return MathPHP\Probability\Combinatorics::permutations($n); }
+function combinations($n,$k){ return MathPHP\Probability\Combinatorics::combinations($n,$k); }
+function combinations_repetition($n,$k){ return MathPHP\Probability\Combinatorics::combinations($n,$k,MathPHP\Probability\Combinatorics::REPETITION); }
+function variations($n,$k){ return MathPHP\Probability\Combinatorics::combinations($n,$k)*MathPHP\Probability\Combinatorics::permutations($n); }
+function variations_repetition($n,$k){ return pow($n,$k); }
