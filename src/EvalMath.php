@@ -44,7 +44,8 @@ class EvalMath
         'sin','sinh','arcsin','asin','arcsinh','arsinh','arsh','asinh','cos','cosh','arccos','acos','arccosh','arcosh','arch','acosh',
         'tan','tanh','arctan','atan','arctanh','artanh','atanh','cot','coth','arccot','acot','arccoth','arcoth','acoth',
         'sqrt','abs','ln','log','log10','csc','sec','exp','sgn','isprime','round','ceil','floor',
-        'deg2rad','rad2deg','roman2number','number2roman',
+        'number2binary','binary2number','number2octal','octal2number','number2hexadecimal','hexadecimal2number',
+        'roman2number','number2roman','degree2radian','radian2degree','deg2rad','rad2deg',
         'factorial','permutations'
     );
     public $fb_2args = array( // list 2 argument functions here too

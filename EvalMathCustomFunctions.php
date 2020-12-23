@@ -64,9 +64,21 @@ function isprime($n)
     return 1;
 }
 
+/* Binary, octal and hexadecimal numbers */
+function binary2number($binary){ return bindec($binary); }
+function number2binary($arabic){ return decbin($arabic); }
+function octal2number($octal){ return octdec($octal); }
+function number2octal($arabic){ return decoct($arabic); }
+function hexadecimal2number($hexadecimal){ return hexdec($hexadecimal); }
+function number2hexadecimal($arabic){ return dechex($arabic); }
+
 /* Roman numbers */
 function roman2number($roman){ return ICE::roman_to_number($roman); }
 function number2roman($arabic){ return ICE::number_to_roman($arabic); }
+
+/* Radian converter */
+function degree2radian($degree){ return deg2rad($degree); }
+function radian2degree($radian){ return rad2deg($radian); }
 
 /* MathPHP functions */
 function factorial($n){ return MathPHP\Probability\Combinatorics::factorial($n); }
