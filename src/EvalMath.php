@@ -49,7 +49,7 @@ class EvalMath
         'factorial','permutations'
     );
     public $fb_2args = array( // list 2 argument functions here too
-        'modulo','mod','fmod','div','intdiv','gcd','lcm','min','max','rand',
+        'modulo','mod','fmod','div','intdiv','gcd','lcm','min','max','rand','base2number','number2base',
         'combinations','combinations_repetition','variations','variations_repetition'
     );
 

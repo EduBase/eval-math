@@ -66,11 +66,15 @@ function isprime($n)
 
 /* Binary, octal and hexadecimal numbers */
 function binary2number($binary){ return bindec($binary); }
-function number2binary($arabic){ return decbin($arabic); }
+function number2binary($decimal){ return decbin($decimal); }
 function octal2number($octal){ return octdec($octal); }
-function number2octal($arabic){ return decoct($arabic); }
+function number2octal($decimal){ return decoct($decimal); }
 function hexadecimal2number($hexadecimal){ return hexdec($hexadecimal); }
-function number2hexadecimal($arabic){ return dechex($arabic); }
+function number2hexadecimal($decimal){ return dechex($decimal); }
+
+/* Any base numbers */
+function base2number($nondecimal,$base){ return base_convert($nondecimal,$base,10); }
+function number2base($decimal,$base){ return base_convert($decimal,10,$base); }
 
 /* Roman numbers */
 function roman2number($roman){ return ICE::roman_to_number($roman); }
